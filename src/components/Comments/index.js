@@ -69,33 +69,29 @@ class Comments extends Component {
   }
 
   render() {
-    const {commentsList} = this.state
+    const {name, comment, commentsList} = this.state
     const totalCommentNumber = commentsList.length
     return (
       <div className="bg-container">
         <h1 className="head">Comments</h1>
         <div className="comment-textInput-container">
-          <form className="comment-input-area">
+          <form className="comment-input-area" onSubmit={this.addNewComment}>
             <p className="para">Say something about 4.0 Technologies</p>
             <input
               type="text"
               placeholder="Your Name"
               className="yourName-input"
               onChange={this.nameInput}
+              value={name}
             />
             <textarea
               rows="8"
               cols="40"
               placeholder="Your Comment"
+              value={comment}
               onChange={this.commentInput}
-            >
-              {}
-            </textarea>
-            <button
-              type="button"
-              className="add-comment-button"
-              onClick={this.addNewComment}
-            >
+            />
+            <button type="submit" className="add-comment-button">
               Add Comment
             </button>
           </form>
